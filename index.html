@@ -36,14 +36,13 @@
     /* ===== HERO ===== */
     .hero{
       text-align:center;
-      margin-bottom:50px;
+      margin-bottom:60px;
     }
 
     .hero h1{
       font-size:2.8rem;
       margin-bottom:10px;
       color:var(--main);
-      letter-spacing:1px;
     }
 
     .hero p{
@@ -55,86 +54,51 @@
     .card{
       background:var(--card);
       border:1px solid var(--border);
-      border-radius:18px;
-      padding:28px;
+      border-radius:20px;
+      padding:30px;
       margin-bottom:35px;
     }
 
     .card h2{
       margin-top:0;
-      margin-bottom:18px;
+      margin-bottom:15px;
       color:var(--accent);
       font-size:1.4rem;
     }
 
-    .card ul{
-      margin:0;
-      padding-right:20px;
-      line-height:1.9;
-    }
-
-    .badge{
-      display:inline-block;
-      background:rgba(56,189,248,0.15);
-      color:var(--main);
-      padding:6px 14px;
-      border-radius:20px;
-      font-size:0.85rem;
-      margin:6px 6px 0 0;
-    }
-
-    /* ===== Gallery ===== */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:22px;
-      margin-top:20px;
-    }
-
-    .gallery-item{
-      background:#020617;
-      border:1px solid var(--border);
-      border-radius:16px;
-      overflow:hidden;
-    }
-
-    .gallery-item img{
-      width:100%;
-      display:block;
-      transition:transform 0.4s ease;
-    }
-
-    .gallery-item:hover img{
-      transform:scale(1.05);
-    }
-
-    .gallery-caption{
-      padding:12px 14px;
-      font-size:0.9rem;
-      color:var(--muted);
+    /* ===== Works Icon ===== */
+    .works-box{
       text-align:center;
     }
 
-    /* ===== Contact ===== */
-    .contact p{
-      margin:10px 0;
-      font-size:1rem;
-    }
-
-    a{
-      color:var(--accent);
+    .works-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:16px 36px;
+      background:linear-gradient(135deg,#fbbf24,#f59e0b);
+      color:#020617;
+      border-radius:40px;
+      font-size:1.1rem;
+      font-weight:800;
       text-decoration:none;
-      font-weight:600;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 10px 30px rgba(251,191,36,0.25);
     }
 
-    a:hover{
-      text-decoration:underline;
+    .works-btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 40px rgba(251,191,36,0.4);
+    }
+
+    .works-icon{
+      font-size:1.4rem;
     }
 
     /* ===== Footer ===== */
     footer{
       text-align:center;
-      margin-top:60px;
+      margin-top:70px;
       padding-top:25px;
       border-top:1px solid var(--border);
       font-size:0.85rem;
@@ -157,71 +121,30 @@
       <h2>نبذة تعريفية</h2>
       <p>
         مطوّر حلول تعليمية رقمية، أعمل على تحويل الأعمال المدرسية التقليدية
-        مثل تحليل النتائج، التقارير، المتابعة، والاستعلام
-        إلى أنظمة إلكترونية ذكية تساعد المدرسة على رفع جودة الأداء،
-        ودعم اتخاذ القرار، وتحسين تجربة المعلم وولي الأمر.
-      </p>
-      <p>
-        أقدّم حلولًا عملية مبنية على احتياج الميدان التعليمي،
-        مع التركيز على البساطة، الدقة، وسهولة الاستخدام.
+        مثل تحليل النتائج، التقارير، والمتابعة
+        إلى أنظمة إلكترونية ذكية تخدم المدرسة والمعلم وولي الأمر.
       </p>
     </div>
 
-    <!-- ===== PROJECTS ===== -->
-    <div class="card">
-      <h2>نماذج من الأعمال المنفذة</h2>
-      <ul>
-        <li>نظام تحليل نتائج اختبارات نافس المحاكية مع مؤشرات أداء</li>
-        <li>نظام استعلام نتائج الطلاب لأولياء الأمور (عرض فقط)</li>
-        <li>لوحات تحكم مدرسية لمتابعة التحصيل والاختبارات</li>
-        <li>تقارير رقمية داعمة لخطط التحسين المدرسية</li>
-      </ul>
-    </div>
+    <!-- ===== WORKS ICON ===== -->
+    <div class="card works-box">
+      <h2>أعمالي</h2>
+      <p style="color:var(--muted);margin-bottom:25px">
+        استعراض نماذج من الأنظمة والواجهات التي تم تطويرها
+      </p>
 
-    <!-- ===== GALLERY ===== -->
-    <div class="card">
-      <h2>عرض مرئي للأعمال</h2>
-
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="images/dashboard.png" alt="لوحة تحكم تحليل النتائج">
-          <div class="gallery-caption">لوحة تحكم تحليل نتائج الاختبارات</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/results.png" alt="واجهة عرض النتائج">
-          <div class="gallery-caption">واجهة عرض النتائج لأولياء الأمور</div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/reports.png" alt="تقارير تعليمية">
-          <div class="gallery-caption">تقارير تعليمية داعمة لخطط التحسين</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== SKILLS ===== -->
-    <div class="card">
-      <h2>مجالات العمل</h2>
-      <span class="badge">تحليل البيانات التعليمية</span>
-      <span class="badge">Google Apps Script</span>
-      <span class="badge">لوحات تحكم مدرسية</span>
-      <span class="badge">تحويل الأعمال الورقية إلى رقمية</span>
-      <span class="badge">أنظمة تعليمية مخصصة</span>
+      <!-- أيقونة أعمالي -->
+      <a href="works.html" class="works-btn">
+        <span class="works-icon">🗂️</span>
+        <span>الدخول إلى أعمالي</span>
+      </a>
     </div>
 
     <!-- ===== CONTACT ===== -->
-    <div class="card contact">
-      <h2>التواصل وطلب الخدمة</h2>
-      <p>📧 البريد الإلكتروني:
-        <a href="mailto:meh@email.com">meh@email.com</a>
-      </p>
-      <p>📱 واتساب:
-        <a href="https://wa.me/9665XXXXXXXX">تواصل مباشر</a>
-      </p>
-      <p style="margin-top:12px;color:var(--muted);font-size:0.9rem">
-        متاح لتصميم أنظمة تعليمية رقمية مخصصة حسب احتياج المدرسة.
-      </p>
+    <div class="card">
+      <h2>التواصل</h2>
+      <p>📧 البريد: meh@email.com</p>
+      <p>📱 واتساب: 05XXXXXXXX</p>
     </div>
 
     <footer>
