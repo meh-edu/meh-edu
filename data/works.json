@@ -3,16 +3,5 @@
     "type": "image",
     "title": "لوحة تحكم تحليل نتائج الاختبارات",
     "src": "images/1.jpg"
-
-  },
-  {
-    "type": "pdf",
-    "title": "تقرير تحليلي تعليمي",
-    "src": "files/example.pdf"
-  },
-  {
-    "type": "video",
-    "title": "عرض نظام استعلام النتائج",
-    "src": "https://www.youtube.com/embed/XXXXXXXX"
   }
 ]
