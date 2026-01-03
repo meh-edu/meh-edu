@@ -3,58 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <title>MEH | أعمالي</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    :root{
+      --bg:#0f172a;
+      --card:#020617;
+      --border:#1e293b;
+      --main:#38bdf8;
+      --accent:#fbbf24;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+    }
+
     body{
       margin:0;
       font-family:'Cairo', sans-serif;
-      background:#0f172a;
-      color:#e5e7eb;
+      background:linear-gradient(180deg,#020617,#0f172a);
+      color:var(--text);
     }
+
     .container{
-      max-width:1100px;
+      max-width:1200px;
       margin:auto;
       padding:50px 20px;
     }
+
     h1{
-      color:#38bdf8;
       text-align:center;
+      color:var(--main);
       margin-bottom:40px;
     }
+
+    .back{
+      display:inline-block;
+      margin-bottom:25px;
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:25px;
     }
+
     .item{
-      background:#020617;
-      border:1px solid #1e293b;
-      border-radius:16px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
       overflow:hidden;
     }
-    .item img, .item iframe{
+
+    .item img,
+    .item iframe{
       width:100%;
       display:block;
+      border:none;
     }
-    .item .info{
+
+    .item iframe{
+      height:320px;
+    }
+
+    .info{
       padding:14px;
+      text-align:center;
       font-size:0.95rem;
-      color:#94a3b8;
-    }
-    a.back{
-      display:inline-block;
-      margin-bottom:25px;
-      color:#fbbf24;
-      text-decoration:none;
-      font-weight:600;
+      color:var(--muted);
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <a class="back" href="index.html">← الرجوع للرئيسية</a>
+    <a href="index.html" class="back">← الرجوع للرئيسية</a>
     <h1>أعمالي</h1>
 
     <div id="works" class="grid"></div>
@@ -62,26 +87,29 @@
 
 <script>
 fetch('data/works.json')
-  .then(res => res.json())
+  .then(response => response.json())
   .then(data => {
     const container = document.getElementById('works');
-    data.forEach(item => {
-      let content = '';
 
-      if(item.type === 'image'){
-        content = `<img src="${item.src}" alt="">`;
+    data.forEach(work => {
+      let media = '';
+
+      if(work.type === 'image'){
+        media = `<img src="${work.src}" alt="">`;
       }
-      if(item.type === 'pdf'){
-        content = `<iframe src="${item.src}" height="350"></iframe>`;
+
+      if(work.type === 'pdf'){
+        media = `<iframe src="${work.src}"></iframe>`;
       }
-      if(item.type === 'video'){
-        content = `<iframe src="${item.src}" height="315" allowfullscreen></iframe>`;
+
+      if(work.type === 'video'){
+        media = `<iframe src="${work.src}" allowfullscreen></iframe>`;
       }
 
       container.innerHTML += `
         <div class="item">
-          ${content}
-          <div class="info">${item.title}</div>
+          ${media}
+          <div class="info">${work.title}</div>
         </div>
       `;
     });
