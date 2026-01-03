@@ -7,72 +7,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#0f172a;
-      --card:#020617;
-      --border:#1e293b;
-      --main:#38bdf8;
-      --accent:#fbbf24;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-    }
-
     body{
       margin:0;
       font-family:'Cairo', sans-serif;
-      background:linear-gradient(180deg,#020617,#0f172a);
-      color:var(--text);
+      background:#0f172a;
+      color:#e5e7eb;
     }
-
     .container{
-      max-width:1200px;
+      max-width:1100px;
       margin:auto;
       padding:50px 20px;
     }
-
     h1{
       text-align:center;
-      color:var(--main);
+      color:#38bdf8;
       margin-bottom:40px;
     }
-
     .back{
       display:inline-block;
       margin-bottom:25px;
-      color:var(--accent);
+      color:#fbbf24;
       text-decoration:none;
       font-weight:600;
     }
-
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       gap:25px;
     }
-
     .item{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:18px;
+      background:#020617;
+      border:1px solid #1e293b;
+      border-radius:16px;
       overflow:hidden;
     }
-
     .item img,
     .item iframe{
       width:100%;
       display:block;
       border:none;
     }
-
     .item iframe{
       height:320px;
     }
-
     .info{
       padding:14px;
       text-align:center;
       font-size:0.95rem;
-      color:var(--muted);
+      color:#94a3b8;
     }
   </style>
 </head>
@@ -82,34 +64,33 @@
     <a href="index.html" class="back">← الرجوع للرئيسية</a>
     <h1>أعمالي</h1>
 
+    <!-- ستظهر الأعمال هنا -->
     <div id="works" class="grid"></div>
   </div>
 
 <script>
 fetch('data/works.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('works');
+  .then(r => r.json())
+  .then(list => {
+    const box = document.getElementById('works');
 
-    data.forEach(work => {
+    list.forEach(w => {
       let media = '';
 
-      if(work.type === 'image'){
-        media = `<img src="${work.src}" alt="">`;
+      if (w.type === 'image') {
+        media = `<img src="${w.src}" alt="">`;
+      }
+      if (w.type === 'pdf') {
+        media = `<iframe src="${w.src}"></iframe>`;
+      }
+      if (w.type === 'video') {
+        media = `<iframe src="${w.src}" allowfullscreen></iframe>`;
       }
 
-      if(work.type === 'pdf'){
-        media = `<iframe src="${work.src}"></iframe>`;
-      }
-
-      if(work.type === 'video'){
-        media = `<iframe src="${work.src}" allowfullscreen></iframe>`;
-      }
-
-      container.innerHTML += `
+      box.innerHTML += `
         <div class="item">
           ${media}
-          <div class="info">${work.title}</div>
+          <div class="info">${w.title}</div>
         </div>
       `;
     });
