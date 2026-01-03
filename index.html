@@ -28,7 +28,7 @@
     }
 
     .container{
-      max-width:1000px;
+      max-width:1100px;
       margin:auto;
       padding:60px 20px;
     }
@@ -57,12 +57,12 @@
       border:1px solid var(--border);
       border-radius:18px;
       padding:28px;
-      margin-bottom:30px;
+      margin-bottom:35px;
     }
 
     .card h2{
       margin-top:0;
-      margin-bottom:16px;
+      margin-bottom:18px;
       color:var(--accent);
       font-size:1.4rem;
     }
@@ -83,9 +83,41 @@
       margin:6px 6px 0 0;
     }
 
+    /* ===== Gallery ===== */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:22px;
+      margin-top:20px;
+    }
+
+    .gallery-item{
+      background:#020617;
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+    }
+
+    .gallery-item img{
+      width:100%;
+      display:block;
+      transition:transform 0.4s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.05);
+    }
+
+    .gallery-caption{
+      padding:12px 14px;
+      font-size:0.9rem;
+      color:var(--muted);
+      text-align:center;
+    }
+
     /* ===== Contact ===== */
     .contact p{
-      margin:8px 0;
+      margin:10px 0;
       font-size:1rem;
     }
 
@@ -139,22 +171,33 @@
     <div class="card">
       <h2>نماذج من الأعمال المنفذة</h2>
       <ul>
-        <li>نظام تحليل نتائج اختبارات نافس المحاكية مع مؤشرات أداء واضحة</li>
-        <li>نظام استعلام نتائج الطلاب لأولياء الأمور (عرض فقط – بدون كشف البيانات)</li>
+        <li>نظام تحليل نتائج اختبارات نافس المحاكية مع مؤشرات أداء</li>
+        <li>نظام استعلام نتائج الطلاب لأولياء الأمور (عرض فقط)</li>
         <li>لوحات تحكم مدرسية لمتابعة التحصيل والاختبارات</li>
-        <li>نماذج تقارير رقمية داعمة لخطط التحسين المدرسية</li>
+        <li>تقارير رقمية داعمة لخطط التحسين المدرسية</li>
       </ul>
     </div>
 
-    <!-- ===== VISUAL SHOWCASE ===== -->
+    <!-- ===== GALLERY ===== -->
     <div class="card">
       <h2>عرض مرئي للأعمال</h2>
-      <p style="color:var(--muted)">
-        نماذج توضيحية لبعض الأنظمة والواجهات التي تم تطويرها.
-      </p>
-      <p style="margin-top:15px;font-size:0.9rem;color:var(--muted)">
-        (سيتم إرفاق صور وسكرين شوت للأعمال هنا)
-      </p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/dashboard.png" alt="لوحة تحكم تحليل النتائج">
+          <div class="gallery-caption">لوحة تحكم تحليل نتائج الاختبارات</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/results.png" alt="واجهة عرض النتائج">
+          <div class="gallery-caption">واجهة عرض النتائج لأولياء الأمور</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/reports.png" alt="تقارير تعليمية">
+          <div class="gallery-caption">تقارير تعليمية داعمة لخطط التحسين</div>
+        </div>
+      </div>
     </div>
 
     <!-- ===== SKILLS ===== -->
@@ -176,7 +219,7 @@
       <p>📱 واتساب:
         <a href="https://wa.me/9665XXXXXXXX">تواصل مباشر</a>
       </p>
-      <p style="margin-top:10px;color:var(--muted);font-size:0.9rem">
+      <p style="margin-top:12px;color:var(--muted);font-size:0.9rem">
         متاح لتصميم أنظمة تعليمية رقمية مخصصة حسب احتياج المدرسة.
       </p>
     </div>
