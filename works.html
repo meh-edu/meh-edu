@@ -69,7 +69,7 @@
   </div>
 
 <script>
-fetch('data/works.json')
+fetch('data/works.json?v=' + new Date().getTime())
   .then(r => r.json())
   .then(list => {
     const box = document.getElementById('works');
